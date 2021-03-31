@@ -1,8 +1,8 @@
-If you find our code is useful, please cite our paper
+If you find our code is useful, please cite [our paper](https://arxiv.org/pdf/1910.00780.pdf)
 
 # Usage
 - For all kinds of models in the model_zoo: 
-    - access model.nn_mass will return the NN_Mass of the model 
+    - access ```model.nn_mass``` will return the NN_Mass of the model 
 ## MLP
 ### NN_Mass vs. Test Accuracy
 - Evaluate the test accuracy of MLP with self-defined topology/architecture
@@ -38,16 +38,16 @@ If you find our code is useful, please cite our paper
 
 | optional arguments | Description |
 | ----------- | ----------- |
-|   -h, --help          |  show this help message and exit
-|   --batch_size BATCH_SIZE    |      Number of samples per mini-batch
-|   --epochs EPOCHS     |      Number of epoch to train
-|   --depth DEPTH        |     the depth (number of FC layers) of the MLP
-|   --width WIDTH         |    the width (number of neurons per layers) of the MLP
-|   --num_seg NUM_SEG     |    the number of segmentation for the synthetic dataset
-|   --tc TC               |    the number of tc
-|   --dataset DATASET     |    the type of dataset
-|   --sigma_log_file SIGMA_LOG_FILE    |    the name of file used to record the LDI record of MLPs
-|   --iter_times ITER_TIMES     |   the number of iteration times to calculate the LDI of  the same architecture
+|   -h,           |  show this help message and exit
+|   --batch_size     |      Number of samples per mini-batch
+|   --epochs      |      Number of epoch to train
+|   --depth         |     the depth (number of FC layers) of the MLP
+|   --width          |    the width (number of neurons per layers) of the MLP
+|   --num_seg      |    the number of segmentation for the synthetic dataset
+|   --tc                |    the number of tc
+|   --dataset DAASET     |    the type of dataset
+|   --sigma_log_file     |    the name of file used to record the LDI record of MLPs
+|   --iter_times      |   the number of iteration times to calculate the LDI of  the same architecture
 
 - Example: Calculate a 8-layer MLP with 8 neurons and tc=10 per layer on MNIST dataset
 
@@ -55,7 +55,7 @@ If you find our code is useful, please cite our paper
 
 ## CNN
 ### CIFAR-10/100
-- Evaluate the test accuracy of MLP with self-defined topology/architecture
+- Train and evaluate the test accuracy of MLP with self-defined topology/architecture
 - usage: 
     - python train_cifar.py  [arguments]
 
@@ -81,5 +81,46 @@ If you find our code is useful, please cite our paper
     * python train_mlp.py --depth=8 --width=8 --tc=10 --dataset='MNIST' 
 
 ### ImageNet
+We reuse some code from [mobilenetv2.pytorch](https://github.com/d-li14/mobilenetv2.pytorch)
+Currently, we support:
+```
+mobilenet_v2
+resnet18
+resnet34
+resnet50
+resnet101
+resnet152' 
+resnext50_32x4d' 
+resnext101_32x8d' 
+wide_resnet50_2'  
+wide_resnet101_2' 
+```
 
+#### Training
+```
+python imagenet.py \
+    -a mobilenetv2 \
+    -d <path-to-ILSVRC2012-data> \
+    --epochs 150 \
+    --lr-decay cos \
+    --lr 0.05 \
+    --wd 4e-5 \
+    -c <path-to-save-checkpoints> \
+    --width-mult <width-multiplier> \
+    --input-size <input-resolution> \
+    -j <num-workers>
+```
 
+#### Test
+```shell
+python imagenet.py \
+    -a mobilenetv2 \
+    -d <path-to-ILSVRC2012-data> \
+    --weight <pretrained-pth-file> \
+    --width-mult <width-multiplier> \
+    --input-size <input-resolution> \
+    -e
+```
+# Dependency
+```Please check the environment.sh ```
+Note: the installation of pytorch depends on your OS version and GPU types.
