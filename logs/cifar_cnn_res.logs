@@ -1,5 +1,0 @@
-NN-Density: [0.20454545 0.20454545 0.16276042] NN-Mass: 526.1060606060606 NN-width: [ 32  64 128] NN-cell_depth: 13 TC: [40, 80, 125, 200] number of parameters: 867656
-NN-Density: [0.20454545 0.20454545 0.16276042] NN-Mass: 526.1060606060606 NN-width: [ 32  64 128] NN-cell_depth: 13 TC: [40, 80, 125, 200] number of parameters: 867656
-NN-Density: [0.20454545 0.20454545 0.16276042] NN-Mass: 526.1060606060606 NN-width: [ 32  64 128] NN-cell_depth: 13 TC: [40, 80, 125, 200] number of parameters: 867656
-MN-Mass:526.1060606060606  Train  epoch:0  Train top1_acc:9.7020  Train loss:4.6091
-MN-Mass:526.1060606060606  Test  epoch:0  top1_acc:10.0000  loss:2.3041
