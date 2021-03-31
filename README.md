@@ -56,33 +56,29 @@ Offical code for 'How does topology influence gradient propagation and model per
 ## CNN
 ### CIFAR-10/100
 - Train and evaluate the test accuracy of MLP with self-defined topology/architecture
+- Currently we support DensetNet-type CNNs ('regular_dense') and DensetNet-type +Depthwisw Conv CNNs. ('dense_depth')
 - usage: 
     - python train_cifar.py  [arguments]
 
 | optional arguments | Description |
 | ----------- | ----------- |
   | -h, --help      |      show this help message and exit |
-  | --batch_size    | Number of samples per mini-batch |
-  | --epochs        | Number of epoch to train |
-  | --lr            |     Learning rate |
-  | --depth         |  the depth (number of FC layers) of the MLP |
-  | --width         |  the width (number of neurons per layers) of the MLP |
-  | --num_seg       | the number of segmentation for the synthetic dataset (currently we support 'linear' and 'circle' dataset)|
-  | --tc            |     the number of tc |
-  | --dataset       | the type of dataset |
-  | --make_dataset   |      generate/regenerate the synthetic dataset or not |
-  | --train_log_file |   the name of file used to record the training/test record of MLPs |
-  | --res_log_file  | the name of file used to record the training/test record of MLPs |
-  | --iter_times  | the number of iteration times to train the same architecture |
+  |--arch          |  network architecture |
+  |--wm              |  width multipler of CNN cells|
+  |--num_cells  |                        number of cells|
+  | --cell_depth  |                        number of layers for each cell|
+  |--tc1        |      tc for the first cell|
+  |--tc2        |      tc for the second cell|
+  |--tc3         |     tc for the thrid cell|
+  |--tc4        |      tc for the fourth cell|
+|--dataset  |    dataset|
+- Example: train a 3-cell wm=2 8-layer per cell DensetNet-type CNN with tc[10,20,30] for each cell on CIFAR10 dataset
 
-
-- Example: train a 8-layer MLP with 8 neurons and tc=10 per layer on MNIST dataset
-
-    * python train_mlp.py --depth=8 --width=8 --tc=10 --dataset='MNIST' 
+    * python train_cifar.py --num_cells=3 --cell_depth=8 --wm=2 --tc1=10 --tc2=20 --tc3=40 --dataset='cifar10' --arch='regular_dense'
 
 ### ImageNet
 We reuse some code from [mobilenetv2.pytorch](https://github.com/d-li14/mobilenetv2.pytorch)\
-Currently, we support:
+Currently, we support the following networks (use ```python imagenet.py -a network_name``` to select the networks):
 ```
 mobilenet_v2
 resnet18
@@ -96,7 +92,7 @@ wide_resnet50_2'
 wide_resnet101_2' 
 ```
 
-#### Training
+#### Example: Train MobileNet-v2
 ```
 python imagenet.py \
     -a mobilenetv2 \
@@ -111,7 +107,7 @@ python imagenet.py \
     -j <num-workers>
 ```
 
-#### Test
+####  Example: Test MobileNet-v2
 ```shell
 python imagenet.py \
     -a mobilenetv2 \
@@ -128,7 +124,7 @@ Note: the installation of pytorch depends on your OS version and GPU types.
 \
 \
 \
-if you find our paper useful, please consider citing our paper:
+if you find our code useful, please consider citing our paper:
 ```
 @article{bhardwaj2019does,
   title={How Does Topology of Neural Architectures Impact Gradient Propagation and Model Performance?},
