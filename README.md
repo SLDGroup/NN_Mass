@@ -1,8 +1,8 @@
-If you find our code is useful, please cite [our paper](https://arxiv.org/pdf/1910.00780.pdf)
+Offical code for 'How does topology influence gradient propagation and model performance of deep networks with DenseNet-type skip connections?' (CVPR 2021) [ArXiv link](https://arxiv.org/pdf/1910.00780.pdf)
 
 # Usage
 - For all kinds of models in the model_zoo: 
-    - access ```model.nn_mass``` will return the NN_Mass of the model 
+    - access ```model.nn_mass``` will return the NN_Mass value of the model 
 ## MLP
 ### NN_Mass vs. Test Accuracy
 - Evaluate the test accuracy of MLP with self-defined topology/architecture
@@ -81,7 +81,7 @@ If you find our code is useful, please cite [our paper](https://arxiv.org/pdf/19
     * python train_mlp.py --depth=8 --width=8 --tc=10 --dataset='MNIST' 
 
 ### ImageNet
-We reuse some code from [mobilenetv2.pytorch](https://github.com/d-li14/mobilenetv2.pytorch)
+We reuse some code from [mobilenetv2.pytorch](https://github.com/d-li14/mobilenetv2.pytorch)\
 Currently, we support:
 ```
 mobilenet_v2
@@ -121,6 +121,20 @@ python imagenet.py \
     --input-size <input-resolution> \
     -e
 ```
-# Dependency
-```Please check the environment.sh ```
+## Dependency
+```Please check the environment.sh ```\
 Note: the installation of pytorch depends on your OS version and GPU types.
+\
+\
+\
+\
+if you find our paper useful, please consider citing our paper:
+```
+@article{bhardwaj2019does,
+  title={How Does Topology of Neural Architectures Impact Gradient Propagation and Model Performance?},
+  author={Bhardwaj, Kartikeya and Li, Guihong and Marculescu, Radu},
+  journal={arXiv preprint arXiv:1910.00780},
+  year={2019}
+}
+```
+
