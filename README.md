@@ -5,7 +5,7 @@ Offical code for 'How does topology influence gradient propagation and model per
     - access ```model.nn_mass``` will return the NN_Mass value of the model 
 ## MLP
 ### NN_Mass vs. Test Accuracy
-- Evaluate the test accuracy of MLP with self-defined topology/architecture
+- Evaluate the test accuracy of MLPs with random concatenation-type skip connections
 - usage: 
     - python train_mlp.py  [arguments]
 
@@ -18,7 +18,7 @@ Offical code for 'How does topology influence gradient propagation and model per
   | --depth         |  the depth (number of FC layers) of the MLP |
   | --width         |  the width (number of neurons per layers) of the MLP |
   | --num_seg       | the number of segmentation for the synthetic dataset (currently we support 'linear' and 'circle' dataset)|
-  | --tc            |     the maximal number of skip connections that each layer could have |
+  | --tc            |     maximum number of candidate channels/neurons from previous layers that can supply concatenation-type skip connections |
   | --dataset       | the type of dataset |
   | --make_dataset   |      generate/regenerate the synthetic dataset or not |
   | --train_log_file |   the name of file used to record the training/test record of MLPs |
@@ -32,7 +32,7 @@ Offical code for 'How does topology influence gradient propagation and model per
 
 
 ### NN_Mass vs. LDI
-- Calculate the LDI (mean singular value of Jacobians) of MLP with self-defined topology/architecture. 
+- Calculate the LDI (mean singular value of Jacobians) of MLPs with random concatenation-type skip connections. 
 - Currenlty, our code only could calculate the LDI of MLP on MNIST dataset. 
 - The usage is similar to train_mlp.py
     - python ldi.py  [arguments]
@@ -45,7 +45,7 @@ Offical code for 'How does topology influence gradient propagation and model per
 |   --depth         |     the depth (number of FC layers) of the MLP
 |   --width          |    the width (number of neurons per layers) of the MLP
 |   --num_seg      |    the number of segmentation for the synthetic dataset
-|   --tc                |    the maximal number of skip connections that each layer could have
+|   --tc                |    maximum number of candidate channels/neurons from previous layers that can supply concatenation-type skip connections
 |   --dataset DAASET     |    the type of dataset
 |   --sigma_log_file     |    the name of file used to record the LDI record of MLPs
 |   --iter_times      |   the number of iteration times to calculate the LDI of  the same architecture
@@ -68,10 +68,10 @@ Offical code for 'How does topology influence gradient propagation and model per
   |--wm              |  width multipler of CNN cells|
   |--num_cells  |                        number of cells|
   | --cell_depth  |                        number of layers for each cell|
-  |--tc1        |      the maximal number of skip connections that each layer could have for the first cell|
-  |--tc2        |      the maximal number of skip connections that each layer could have for the second cell|
-  |--tc3         |     the maximal number of skip connections that each layer could have for the thrid cell|
-  |--tc4        |      the maximal number of skip connections that each layer could have for the fourth cell|
+  |--tc1        |    within the first cell, maximum number of candidate channels/neurons from previous layers that can supply concatenation-type skip connections |
+  |--tc2        |    within the second cell,   maximum number of candidate channels/neurons from previous layers that can supply concatenation-type skip connections |
+  |--tc3         |   within the third cell,   maximum number of candidate channels/neurons from previous layers that can supply concatenation-type skip connections |
+  |--tc4        |    within the fourth cell,   maximum number of candidate channels/neurons from previous layers that can supply concatenation-type skip connections |
 |--dataset  |    dataset|
 - Example: train a 3-cell wm=2 8-layer per cell DensetNet-type CNN with tc[10,20,30] for each cell on CIFAR10 dataset
 
