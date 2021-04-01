@@ -26,7 +26,7 @@ Offical code for 'How does topology influence gradient propagation and model per
   | --iter_times  | the number of iteration times to train the same architecture |
 
 
-- Example: train a 8-layer MLP with 8 neurons and tc=10 per layer on MNIST dataset
+- Example: train a 8-layer MLP with 8 neurons per layer and tc=10 on MNIST dataset
 
     * python train_mlp.py --depth=8 --width=8 --tc=10 --dataset='MNIST' 
 
@@ -50,7 +50,7 @@ Offical code for 'How does topology influence gradient propagation and model per
 |   --sigma_log_file     |    the name of file used to record the LDI record of MLPs
 |   --iter_times      |   the number of iteration times to calculate the LDI of  the same architecture
 
-- Example: Calculate a 8-layer MLP with 8 neurons and tc=10 per layer on MNIST dataset
+- Example: Calculate the LDI of a 8-layer MLP with 8 neurons per layer and tc=10 on MNIST dataset
 
     * python ldi.py --depth=8 --width=8 --tc=10 --dataset='MNIST' 
 
