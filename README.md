@@ -79,7 +79,7 @@ Offical code for 'How does topology influence gradient propagation and model per
 
 ### ImageNet
 We reuse some code from [mobilenetv2.pytorch](https://github.com/d-li14/mobilenetv2.pytorch)\
-Currently, we support the following networks (use ```python imagenet.py -a network_name``` to select the networks):
+Currently, we support the following networks (use ```python train_imagenet.py -a network_name``` to select the networks):
 ```
 mobilenet_v2
 resnet18
@@ -95,7 +95,7 @@ wide_resnet101_2
 
 #### Example: Train MobileNet-v2
 ```
-python imagenet.py \
+python train_imagenet.py \
     -a mobilenetv2 \
     -d <path-to-ILSVRC2012-data> \
     --epochs 150 \
@@ -110,7 +110,7 @@ python imagenet.py \
 
 ####  Example: Test MobileNet-v2
 ```shell
-python imagenet.py \
+python train_imagenet.py \
     -a mobilenetv2 \
     -d <path-to-ILSVRC2012-data> \
     --weight <pretrained-pth-file> \
