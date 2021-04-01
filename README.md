@@ -32,7 +32,8 @@ Offical code for 'How does topology influence gradient propagation and model per
 
 
 ### NN_Mass vs. LDI
-- Calculate the LDI (mean singular value of Jacobians) of MLP with self-defined topology/architecture. Currently we only support on MNIST dataset. 
+- Calculate the LDI (mean singular value of Jacobians) of MLP with self-defined topology/architecture. 
+- Currenlty, our code only could calculate the LDI of MLP on MNIST dataset. 
 - The usage is similar to train_mlp.py
     - python ldi.py  [arguments]
 
