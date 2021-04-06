@@ -128,7 +128,7 @@ Note: the installation of pytorch depends on your OS version and GPU types.
 if you find our code useful, please consider citing our paper:
 ```
 @article{bhardwaj2019does,
-  title={How Does Topology of Neural Architectures Impact Gradient Propagation and Model Performance?},
+  title={How does topology influence gradient propagation and model performance of deep networks with DenseNet-type skip connections?},
   author={Bhardwaj, Kartikeya and Li, Guihong and Marculescu, Radu},
   journal={arXiv preprint arXiv:1910.00780},
   year={2019}
