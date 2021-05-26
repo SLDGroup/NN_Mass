@@ -1,4 +1,4 @@
-Offical code for 'How does topology influence gradient propagation and model performance of deep networks with DenseNet-type skip connections?' (CVPR 2021) [ArXiv link](https://arxiv.org/pdf/1910.00780.pdf)
+Official code for 'How does topology influence gradient propagation and model performance of deep networks with DenseNet-type skip connections?' (CVPR 2021) [ArXiv link](https://arxiv.org/pdf/1910.00780.pdf)
 
 # Usage
 - For all kinds of models in the model_zoo: 
